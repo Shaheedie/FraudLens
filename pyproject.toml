@@ -1,0 +1,25 @@
+[build-system]
+requires=['setuptools>=68']
+build-backend='setuptools.build_meta'
+[project]
+name='fraudlens'
+version='1.0.0'
+description='Cost-aware credit-card fraud detection portfolio project'
+requires-python='>=3.12'
+dependencies=['pandas>=2.2,<3','numpy>=1.26,<3','scikit-learn>=1.5,<2','joblib>=1.4,<2','streamlit>=1.38,<2','matplotlib>=3.9,<4']
+[project.optional-dependencies]
+dev=['pytest>=8,<9','ruff>=0.7,<1']
+[tool.setuptools.packages.find]
+where=['src']
+[tool.ruff]
+line-length=110
+target-version='py312'
+[tool.ruff.lint]
+select=['E','F','I','B','UP']
+
+[tool.ruff.lint.per-file-ignores]
+"app.py" = ["E402"]
+"scripts/*.py" = ["E402"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"app.py" = ["E501"]
